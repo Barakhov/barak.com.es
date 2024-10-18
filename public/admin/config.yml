@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: Barakhov/astro-decap #replace new repo
+  repo: Barakhov/barak.com.es #replace new repo
   branch: main
   squash_merges: true
   open_authoring: true
@@ -8,7 +8,7 @@ backend:
 publish_mode: editorial_workflow
 media_folder: public/images
 public_folder: /images
-site_url: "https://astrodecapsite.netlify.app/" # site name name here
+site_url: "https://barak.com.es/" # site name name here
 
 collections:
   - name: post
