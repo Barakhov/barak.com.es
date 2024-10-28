@@ -16,9 +16,35 @@ const posts = await getCollection("posts");
 
 <Layout>
   <main class="flex flex-col gap-20">
-    <article class="flex flex-col gap-8">
+    <article
+      class="flex flex-col gap-8"
+      transition:name="myArticle"
+    >
+    <div class="w-32 h-32">
+      <svg
+        fill="#ff00ff"
+        height="100%"
+        width="100%"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 485 485"
+        xml:space="preserve"
+        id="mySvg"
+        transition:name="mySvg"
+      >
+        <g>
+          <path d="M0,0v485h485V0H0z M455,455H30V30h425V455z"></path>
+          <path
+            d="M144.944,391.05l98.171-51.266l98.665,50.305l-18.42-109.207l78.333-78.292l-109.555-16.229l-50.254-98.692l-49.288,99.178
+ L83.206,204.145l79.093,77.524L144.944,391.05z M146.794,224.463l65.779-10.401l29.638-59.638l30.219,59.346l65.877,9.758
+ l-47.103,47.079l11.076,65.669l-59.329-30.25l-59.032,30.827l10.435-65.774L146.794,224.463z"
+          ></path>
+        </g>
+      </svg>
+    </div>
       <h1 class="text-3xl text-neutral-100">{presentation.title}</h1>
-      <h2
+      <p
         class="max-w-[60ch] leading-6"
         set:html={convertAsteriskToStrongTag(presentation.description)}
       />
@@ -26,13 +52,30 @@ const posts = await getCollection("posts");
     </article>
 
     <article class="flex flex-col gap-8">
+      <h2 class="text-3xl text-neutral-100">Checklist</h2>
+
+
+      <ul class="list-disc pl-5">
+        <li>darkmode</li>
+        <li>variable fonts</li>
+        <li>spline 3D something</li>
+        <li>GSAP interaction (scrollTrigger)</li>
+        <li>Some Codrops inspiration maybe?</li>
+        <li>Testimonials - "Quotes"</li>
+      </ul>
+    </article>
+
+    <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Latest posts</h3>
+        <h2 class="text-lg text-neutral-100">Latest posts</h2>
         <Link href="/posts" label="See all posts" isUnderline target="_self" />
       </header>
       {posts.length === 0 && <p>Soon, stay connected 👀...</p>}
 
-      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+      <section
+        class="flex flex-col gap-4 md:flex-row md:flex-wrap"
+        aria-label="Latest blog posts"
+      >
         {
           posts.length !== 0 &&
             posts
@@ -51,13 +94,13 @@ const posts = await getCollection("posts");
 
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">
+        <h2 class="text-lg text-neutral-100">
           Selected projects ({projects.length})
-        </h3>
+        </h2>
       </header>
       {projects.length === 0 && <p>Oops, no projects yet</p>}
 
-      <section class="flex flex-col gap-4">
+      <section class="flex flex-col gap-4" aria-label="Selected projects">
         {
           projects.length !== 0 &&
             projects.map((project) => <ProjectCard {...project} />)
@@ -67,7 +110,7 @@ const posts = await getCollection("posts");
 
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Get in touch</h3>
+        <h2 class="text-lg text-neutral-100">Get in touch</h2>
       </header>
       <p>
         Email me at <Link

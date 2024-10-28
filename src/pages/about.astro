@@ -1,0 +1,37 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <main class="flex flex-col gap-20">
+    <article class="flex flex-col gap-8" transition:name="myArticle">
+      <div class="h-64 w-64">
+        <svg
+          fill="#ffff00"
+          height="100%"
+          width="100%"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 485 485"
+          xml:space="preserve"
+          id="mySvg"
+          transition:name="mySvg"
+          class="svg-rotate"
+        >
+          <g>
+            <path d="M0,0v485h485V0H0z M455,455H30V30h425V455z"></path>
+            <path
+              d="M144.944,391.05l98.171-51.266l98.665,50.305l-18.42-109.207l78.333-78.292l-109.555-16.229l-50.254-98.692l-49.288,99.178
+ L83.206,204.145l79.093,77.524L144.944,391.05z M146.794,224.463l65.779-10.401l29.638-59.638l30.219,59.346l65.877,9.758
+ l-47.103,47.079l11.076,65.669l-59.329-30.25l-59.032,30.827l10.435-65.774L146.794,224.463z"
+            ></path>
+          </g>
+        </svg>
+      </div>
+    </article>
+    <article class="min-h-[100dvh]">
+        content
+    </article>
+  </main>
+</Layout>
