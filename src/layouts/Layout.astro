@@ -3,7 +3,9 @@ import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 import SEOTags from "@/components/seo/SEOTags.astro";
 
-import "@fontsource-variable/hanken-grotesk";
+// Supports weights 200-800
+import '@fontsource-variable/manrope';
+
 import "@/styles/tailwind.css";
 import "@/styles/post.css";
 
@@ -19,13 +21,13 @@ const { title } = Astro.props;
   <SEOTags title={title} />
   <ViewTransitions />
   <body
-    class="mx-auto flex min-h-screen max-w-[872px] flex-col gap-9 bg-neutral-950 px-10 py-8 text-sm text-neutral-400 md:gap-20 md:py-16"
+    class="mx-auto flex min-h-screen max-w-[872px] flex-col gap-9 bg-neutral-950 dark:bg-slate-200 px-10 py-8 text-sm text-neutral-400 dark:text-slate-800 md:gap-20 md:py-16"
   >
     <Header />
     <slot />
     <style is:global>
       html {
-        font-family: "Hanken Grotesk Variable";
+        font-family: "Manrope Variable";
       }
 
       @keyframes svgRotate {
@@ -43,5 +45,6 @@ const { title } = Astro.props;
 
     </style>
     <script src="../scripts/pageLoad.js"></script>
+    <script src="../scripts/themeToggle.js"></script>
   </body>
 </html>
