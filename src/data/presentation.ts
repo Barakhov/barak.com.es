@@ -14,7 +14,7 @@ const presentation: Presentation = {
   mail: "a.barakhov@gmail.com",
   title: "Hi there, I'm Alex 👋",
   description:
-    "I am a frontend developer with a robust background in visual design, specializing in user interface development. My expertise lies in crafting intuitive and engaging interactions using technologies such as React, 11ty, Webflow, and GSAP. Passionate about web animations, I prioritize creating exceptional user experiences while balancing stakeholder needs, accessibility, usability, and industry best practices. I excel in collaborating with designers, marketing teams, developers, and clients to simplify complex problems and stay ahead of technology trends.",
+    "I'm a frontend developer with a robust background in visual design, specializing in user interface development. I build intuitive, engaging interactions using technologies like Svelte, React, Tailwind, 11ty, Webflow, GSAP, and Rive. Passionate about web animations, I prioritize user experience, accessibility, and best practices. Skilled in cross-functional collaboration, I simplify complex problems and stay ahead of industry trends.",
   socials: [
     {
       label: "LinkedIn",

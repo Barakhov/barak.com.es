@@ -10,6 +10,7 @@ import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
 
 import presentation from "@/data/presentation";
 import projects from "@/data/projects";
+import Splide from "@/components/Splide.astro";
 
 const posts = await getCollection("posts");
 ---
@@ -47,6 +48,10 @@ const posts = await getCollection("posts");
       />
       <SocialLinks />
     </article>
+    
+    <Splide/>
+
+  
 
     <article class="flex flex-col gap-8">
       <h2 class="text-3xl text-neutral-100">Checklist</h2>

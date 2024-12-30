@@ -1,0 +1,51 @@
+---
+import '@splidejs/splide/dist/css/splide.min.css';
+
+const slides = [
+  { id: 1, text: 'Welcome to our website!' },
+  { id: 2, text: 'Check out our latest offers!' },
+  { id: 3, text: 'Join us for an amazing experience!' },
+];
+---
+
+<div class="splide" aria-label="Auto Scroll Text Carousel">
+  <div class="splide__track">
+    <ul class="splide__list">
+      {slides.map(slide => (
+        <li class="splide__slide">
+          <div class="slide-content">{slide.text}</div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<script>
+  import Splide from '@splidejs/splide';
+  import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const splide = new Splide('.splide', {
+      type: 'loop',
+      perPage: 1,
+      pagination: false,
+      arrows: false,
+      autoScroll: {
+        speed: 2,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+      },
+    });
+
+    splide.mount({ AutoScroll });
+  });
+</script>
+
+<style>
+  .slide-content {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 2rem;
+  }
+</style>
