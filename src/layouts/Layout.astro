@@ -1,10 +1,11 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import SEOTags from "@/components/seo/SEOTags.astro";
 
 // Supports weights 200-800
-import '@fontsource-variable/manrope';
+import "@fontsource-variable/manrope";
 
 import "@/styles/tailwind.css";
 import "@/styles/post.css";
@@ -16,15 +17,36 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <SEOTags title={title} />
   <ViewTransitions />
   <body
-    class="mx-auto flex min-h-screen max-w-[872px] flex-col gap-9 dark:bg-neutral-950 bg-slate-200 px-10 py-8 text-sm dark:text-neutral-400 text-slate-800 md:gap-20 md:py-16"
+    class="dark:bg-neutral-950 bg-slate-200 text-sm dark:text-neutral-400 text-slate-800"
   >
     <Header />
-    <slot />
+    <div
+      class="mx-auto flex min-h-screen flex-col gap-9 md:gap-20 md:py-16"
+    >
+      <slot />
+    </div>
+    <Footer>
+      <ul>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+        <li>asdsaf</li>
+      </ul>
+    </Footer>
     <style is:global>
       html {
         font-family: "Manrope Variable";

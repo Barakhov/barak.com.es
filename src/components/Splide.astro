@@ -1,38 +1,96 @@
 ---
-import '@splidejs/splide/dist/css/splide.min.css';
+import "@splidejs/splide/dist/css/splide.min.css";
 
 const slides = [
-  { id: 1, text: 'Welcome to our website!' },
-  { id: 2, text: 'Check out our latest offers!' },
-  { id: 3, text: 'Join us for an amazing experience!' },
+  {
+    id: 1,
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet tempus nunc congue placerat. Cras volutpat orci at ullamcorper accumsan.",
+    name: "name",
+    position: "position",
+  },
+  {
+    id: 2,
+    text: "Alex is not just about getting things done – he’s all about crafting seamless, polished experiences. His attention to detail and drive to go above and beyond make him a truly exceptional developer.",
+    name: "Joan Mora",
+    position: "Head of Design",
+  },
+  {
+    id: 3,
+    text: "Alex was instrumental in all the technical aspects as we were building a new website for Electromaps. He was always ready to help, very reactive to our many requests, and displaying a deep understanding of web technology.",
+    name: "Christophe Lephilibert",
+    position: "Marketing Director",
+  },
+  {
+    id: 4,
+    text: "My collaboration with Alex was highly successful; his attention to detail and expertise in web interactions brought an exceptional quality to the project",
+    name: "Özden",
+    position: "Senior Product Designer",
+  },
+  {
+    id: 5,
+    text: "I've mentored Alex for over five years, and I couldn't be prouder. His blend of curiosity and determination is remarkable, and he never ceases to impress me",
+    name: "Alessandro Vernali",
+    position: "Senior Software Developer",
+  },
+  {
+    id: 6,
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet tempus nunc congue placerat. Cras volutpat orci at ullamcorper accumsan.",
+    name: "name",
+    position: "position",
+  },
+  {
+    id: 7,
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet tempus nunc congue placerat. Cras volutpat orci at ullamcorper accumsan.",
+    name: "name",
+    position: "position",
+  },
+  {
+    id: 8,
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet tempus nunc congue placerat. Cras volutpat orci at ullamcorper accumsan.",
+    name: "name",
+    position: "position",
+  },
+  {
+    id: 9,
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet tempus nunc congue placerat. Cras volutpat orci at ullamcorper accumsan.",
+    name: "name",
+    position: "position",
+  },
 ];
 ---
 
-<div class="splide" aria-label="Auto Scroll Text Carousel">
+<div class="splide" aria-label="Testimonials Carousel">
   <div class="splide__track">
     <ul class="splide__list">
-      {slides.map(slide => (
-        <li class="splide__slide">
-          <div class="slide-content">{slide.text}</div>
-        </li>
-      ))}
+      {
+        slides.map((slide) => (
+          <li class="splide__slide">
+            <div class="flex flex-col items-stretch justify-center max-w-96 h-full rounded-2xl p-6 bg-gray-200">
+              <p class="text-gray-900 text-lg font-medium mb-auto">{slide.text}</p>
+              <p class="text-gray-900 font-semibold mt-4">{slide.name}</p>
+              <p class="text-gray-600 text-sm">{slide.position}</p>
+            </div>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </div>
 
 <script>
-  import Splide from '@splidejs/splide';
-  import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+  import Splide from "@splidejs/splide";
+  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const splide = new Splide('.splide', {
-      type: 'loop',
-      perPage: 1,
+  document.addEventListener("DOMContentLoaded", () => {
+    const splide = new Splide(".splide", {
+      type: "loop",
+      gap: "1rem",
+      autoWidth: true,
       pagination: false,
       arrows: false,
       autoScroll: {
-        speed: 2,
-        pauseOnHover: true,
+        speed: 0.8,
+        pauseOnHover: false,
         pauseOnFocus: true,
       },
     });
@@ -40,12 +98,3 @@ const slides = [
     splide.mount({ AutoScroll });
   });
 </script>
-
-<style>
-  .slide-content {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 2rem;
-  }
-</style>
