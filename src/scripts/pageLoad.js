@@ -82,7 +82,7 @@ function animateFooter() {
 
   gsap.fromTo(
     footer,
-    { y: "20%" }, // Footer starts 40% down
+    { y: "20%" }, // Footer starts 20% down
     {
       y: "0%", // Moves to normal position when user is at the bottom
       scrollTrigger: {

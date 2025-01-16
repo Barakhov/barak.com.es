@@ -1,0 +1,11 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+const { class: customClass = "" } = Astro.props;
+const baseClass = "max-w-7xl m-auto w-full px-4";
+const mergedClass = twMerge(baseClass, customClass);
+---
+
+<div class={mergedClass}>
+    <slot />
+</div>
