@@ -11,6 +11,7 @@ import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
 import presentation from "@/data/presentation";
 import projects from "@/data/projects";
 import Splide from "@/components/Splide.astro";
+import CanvasImage from "@/components/CanvasImage.astro";
 
 const posts = await getCollection("posts");
 ---
@@ -44,7 +45,6 @@ const posts = await getCollection("posts");
     </article>
 
 
-
     <article class="flex flex-col gap-8">
       <h2 class="text-3xl text-neutral-100">Checklist</h2>
 
@@ -64,9 +64,7 @@ const posts = await getCollection("posts");
             <li class="text-red-600">Alberto - Design Lead</li>
             <li class="text-blue-600">Miguel - CTO</li>
             <li class="text-blue-600">Paco - Tech Guru</li>
-            <li class="text-blue-600">
-              Alessandro - Technical Team Lead
-            </li>
+            <li class="text-blue-600">Alessandro - Technical Team Lead</li>
             <li class="text-yellow-500 line-through">
               Christophe - Marketing & Growth Lead
             </li>
@@ -87,101 +85,7 @@ const posts = await getCollection("posts");
       </ul>
     </article>
 
-    <div>
-      <style>
-        canvas {
-          width: 100%;
-          height: 100%;
-          display: block;
-        }
-      </style>
-
-      <script>
-        var img = new Image();
-        img.onload = start;
-        img.src = "/images/test.png";
-
-        function start() {
-          var canvas = document.querySelector("canvas");
-          var ctx = canvas.getContext("2d");
-
-          // Add variables to store mouse position
-          var clientX = 1;
-          var clientY = 1;
-          var targetX = 1;
-          var targetY = 1;
-
-          canvas.addEventListener("mousemove", function (evt) {
-            targetX = evt.clientX / canvas.width;
-            targetY = evt.clientY / canvas.height;
-          });
-
-          function mix(a, b, l) {
-            return a + (b - a) * l;
-          }
-
-          function upDown(v) {
-            return Math.sin(v) * 0.5 + 0.5;
-          }
-
-          function render(time) {
-            time *= 0.0002;
-
-            resize(canvas);
-
-            // Smoothly update clientX and clientY towards targetX and targetY
-            const smoothingFactor = 0.05; // adjust between 0 and 1 for smoother effect
-            clientX = mix(clientX, targetX, smoothingFactor);
-            clientY = mix(clientY, targetY, smoothingFactor);
-
-            var t1 = time;
-            var t2 = time * 0.37;
-
-            for (var dstX = 0; dstX < canvas.width; ++dstX) {
-              var v = dstX / canvas.width;
-
-              var off1 = Math.sin((v + clientX) * mix(3, 10, upDown(t1))) * 300;
-              var off2 = Math.sin((v + clientY) * mix(3, 12, upDown(t2)));
-              var off = off1 + off2;
-
-              var srcX = (dstX * img.width) / canvas.width + off;
-
-              if (srcX < 1) {
-                srcX = -srcX;
-              } else if (srcX > img.width - 1) {
-                srcX = img.width - (srcX - img.width);
-              }
-
-              ctx.drawImage(
-                img,
-                srcX,
-                0,
-                1,
-                img.height,
-                dstX,
-                0,
-                1,
-                canvas.height
-              );
-            }
-
-            requestAnimationFrame(render);
-          }
-          requestAnimationFrame(render);
-
-          function resize(canvas) {
-            var width = canvas.clientWidth;
-            var height = canvas.clientHeight;
-            if (width != canvas.width || height != canvas.height) {
-              canvas.width = width;
-              canvas.height = height;
-            }
-          }
-        }
-      </script>
-
-      <canvas width="898" height="554"></canvas>
-    </div>
+    <CanvasImage/>
 
     <article class="flex flex-col gap-8">
       <h2 class="text-3xl text-neutral-100">Ideas</h2>
@@ -272,15 +176,6 @@ const posts = await getCollection("posts");
       <SocialLinks />
     </article>
 
-    <article>
-      <p>
-        No data is stored or collected on this website.
-        <br />
-        Site version. 1.0.0 The website uses Manrope font. Created with Astro, Madrid
-        2025.
-        <br />
-        All claims and statements reflect subjective observations.
-      </p>
-    </article>
+
   </main>
 </Layout>

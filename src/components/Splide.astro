@@ -81,20 +81,24 @@ const slides = [
   import Splide from "@splidejs/splide";
   import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const splide = new Splide(".splide", {
-      type: "loop",
-      gap: "1rem",
-      autoWidth: true,
-      pagination: false,
-      arrows: false,
-      autoScroll: {
-        speed: 0.8,
-        pauseOnHover: false,
-        pauseOnFocus: true,
-      },
-    });
+  document.addEventListener("astro:page-load", () => {
+    const element = document.querySelector(".splide") as HTMLElement;
+    
+    if (element) {
+      const splide = new Splide(element, {
+        type: "loop",
+        gap: "1rem",
+        autoWidth: true,
+        pagination: false,
+        arrows: false,
+        autoScroll: {
+          speed: 0.8,
+          pauseOnHover: false,
+          pauseOnFocus: true,
+        },
+      });
 
-    splide.mount({ AutoScroll });
+      splide.mount({ AutoScroll });
+    }
   });
 </script>
