@@ -1,5 +1,5 @@
 ---
-title: last post today
+title: Svelte 5 - runes - versus React
 description: dsghgdfh
 publishedAt: 2024-10-18T09:06:43.059Z
 isPublish: true
